@@ -1,38 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Red+Hat+Display:wght@500;700;900&display=swap');
 
+html, body { height: 100%; width: 100%; margin: 0; 
+    background-color: var(--Pale-blue);
+ }
+
 body{
     --Pale-blue: hsl(225, 100%, 94%);
+    --Pales-blue: hsl(245, 83%, 68%);
     --Bright-blue: hsl(245, 75%, 52%);
     --Very-pale-blue: hsl(225, 100%, 98%);
     --Desaturated-blue: hsl(224, 23%, 55%);
     --Dark-blue: hsl(223, 47%, 23%);
     margin: 0;
-    background-color: var(--Pale-blue);
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    min-width: 100vw;
     font-family: 'Red Hat Display', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+body *{
+    transition: .5s;
 }
 
-body::before{
+body::after{
     background: url('images/pattern-background-desktop.svg');
-    background-repeat: no-repeat;
+    background-size: contain;
+background-repeat: no-repeat;
     width: 100%;
     height: 100%;
     content: '';
     position: absolute;
     z-index: -1;
-
 }
+
 main{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 40%;
-    min-height: 75vh;
+    width: 30%;
+    min-height: 75%;
+    height: 75%;
     background-color: white;
     border-radius:1rem;
 }
@@ -58,12 +67,13 @@ main{
     justify-content: flex-start;
     width: 100%;
     margin: 0;
+    height: 100%;
 }
 .down-texts{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: flex-end; 
     width: 100%;
     text-align: center;
     height: 40%;
@@ -74,40 +84,36 @@ main{
     justify-content: center;
 }
 .down-texts h1{
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 900;
     color: var(--Dark-blue);
-    height: 20%;
 }
 .down-texts p{
-    font-size: .8rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--Desaturated-blue);
-    height: 20%;
-    width: 80%;
+    width: 72%;
     line-height: 1.4rem;
-
 }
 .down-buttons{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-start;
+    width: 85%;
     height: 60%;
 }
 .down-plan{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 90%;
     background-color: var(--Very-pale-blue);
     border-radius: 1rem;
     font-size: 1rem;
     font-weight: 700;
-    cursor: pointer;
     font-size: .7rem;
-    height: 35%;
+    height: 40%;
 }
 .down-plan img{
     width: 2.5rem;
@@ -126,8 +132,13 @@ main{
     border: 0;
     text-decoration: underline;
     color : var(--Bright-blue);
-    font-size: .75rem;
-    font-weight: 700;
+    font-size: .8rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+.down-plan button:hover{
+    color: var(--Pales-blue);
+    text-decoration: none;
 }
 .down-plan-texts *{
     margin: 0;
@@ -138,10 +149,62 @@ main{
 }
 .down-plan-texts h2{
     font-size: 1rem;
+    font-weight: 900;
+    color: var(--Dark-blue);
+}
+.down-plan-texts p{
+    font-size: .85rem;
     font-weight: 700;
-    
+    color: var(--Desaturated-blue);
 }
 
+.down-plan-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 60%;
+}
+.down-plan-buttons div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.down-plan-buttons button{
+    background-color: var(--Bright-blue);
+    border: 0;
+    color: white;
+    font-size: .8rem;
+    font-weight: 700;
+    border-radius: 1rem;
+    letter-spacing: .05rem;
+    width: 90%;
+    height: 3rem;
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1.2rem rgb(14 0 255 / 30%);
+}
+.down-plan-buttons button:hover{
+    background-color: var(--Pales-blue)
+}
+.down-plan-buttons .cancel button{
+    border: 0;
+    background-color: unset;
+    color: var(--Desaturated-blue);
+    font-size: .8rem;
+    font-weight: 900;
+    border-radius: 1rem;
+    letter-spacing: .05rem;
+    width: 100%;
+    height: 3rem;
+    cursor: pointer;
+    box-shadow: none;
+}
+.down-plan-buttons .cancel button:hover{
+    color: var(--Dark-blue);
+}
 @media screen and (max-width: 768px){
     body::before{
         background: url('images/pattern-background-mobile.svg');
@@ -227,8 +290,10 @@ main{
         border-radius: 1rem;
         font-size: 1rem;
         font-weight: 700;
-        cursor: pointer;
         font-size: .7rem;
+    }
+    .down-plan button{
+        background-color:unset;
     }
     .down-plan-texts{
         display: flex;
